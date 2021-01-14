@@ -13,6 +13,11 @@ public class ConstellationOperationsController {
     @Autowired
     ConstellationOperationsService constellationOperationsService;
 
+    @GetMapping("/healthCheck")
+    public String healthCheck() {
+        return "SUCCESS";
+    }
+
     @GetMapping("/getAllConstellationSatInfo")
     public Iterable<ConstellationSatInfo> getAllConstellationSatInfo() {
         return constellationOperationsService.getAllConSatInfo();
