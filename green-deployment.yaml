@@ -1,0 +1,54 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: constellation-microservice-green
+  namespace: starlink
+  labels:
+    app: constellation-restapp-green
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: constellation-restapp-green
+  template:
+    metadata:
+      labels:
+        app: constellation-restapp-green
+    spec:
+      containers:
+        - name: constellation-restapp-green
+          image: 571454663604.dkr.ecr.us-east-2.amazonaws.com/starlink-constellation-operations:latest
+          ports:
+            - containerPort: 8089
+          env:
+            - name: spring.datasource.url
+              value: "jdbc:mysql://constellation-mysql.co1kethmgqbj.us-east-2.rds.amazonaws.com:3306/constellation?useSSL=true"
+            - name: spring.datasource.username
+              value: "root"
+            - name: spring.datasource.password
+              value: "Password.starlink.constellation"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: constellation-restapp-nodeport-service-green
+  namespace: starlink
+  labels:
+    app: constellation-restapp-green
+spec:
+  type: NodePort
+  selector:
+    app: constellation-restapp-green
+  ports:
+    - port: 8087
+      targetPort: 8087
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: constellation-mysql-green
+  namespace: starlink
+spec:
+  type: ExternalName
+  externalName: constellation-mysql.co1kethmgqbj.us-east-2.rds.amazonaws.com
