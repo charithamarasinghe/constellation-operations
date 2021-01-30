@@ -1,0 +1,30 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeE1ERXlOekUzTWpRMU1sb1hEVE14TURFeU5URTNNalExTWxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTTkyCm9zOXVHbkV6Vjk5NUFNWUZTdDk3VTlvVUF6dzNYYUhObWFndFRqRm5yR1hsZnRRQldVL3pzbk52ZnJ4K3BxdTUKai9vcnhBc0VrakFlWUFGeXZjdWhjOWh1TTErYkJFSUwrR2twRUVBZ05MbWRBdUcxZWZOMDFCWWRzTnlaN2E1eApPYXNQeHJUeFljUis5QXlyRngvMjdqK2VGbWh0Z09semp4MUN3ZjgzUDZOU2JxQmRzSGNsSTI4OHNBRUVBK20vCkdkY2lIQWxjbmw5N3c2Zk9wRjQ2eUtWaUdVWThrSE4wV2xxTGFnY1NqWGRlcHJGU2FkUndESzVEK2ZEcW5LV20KajBERE8vWDVrZUJwRXJxZUdzZFNxZ3JudVBFa3l0akxaZkpyWDdtTlFBRzdvL3JOZm1UKzI4Wk9qUXltajNDegprc1RWSHVrQnZJY25MUjZaMW84Q0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFDVnpOR3dWZmMvZE40NWdvZkhjenZUTHRGaHgKRU1lNklDdllRKzN5WW9iVndNUnJGMGprMzVjZkVkVDBLZmcwdzFlVVJWVlZzUk9UQlZ3eHJZVHZQM1oyVjhMYgovMUYyeU9pQ2NsUmtHUk9td1RvUXVhbytkUHRpeGg3MVpRV2I2cDA3Z2gwdHo5SWhWa0JjbmhhM05YTXdOcnB1CjRhQ1NXMU9yV2E0cEJRd1ExU0Y1MzgzUHhwUWRCZ3VOcm81djdSUnRwMVlLcHQxVXZ3WGM3bm5WdjdLWTA1L0UKWW01SmFYR0VxN3Y4WGFKVHdwYzMyenJ3Q0NqWlUrMk02WkZYQ3NYOEp5U2lPQkNxc2NJbUFJTHBmZ3lQc0c2awpkZWdRa0FhRkdEd2gzb2JFWFZSN1hTbXZPblVza2JpNnZ2NDlpUjduK3RNLzJOZGNNb1RyM0pCUmxyND0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://343F39DD7FA0C8B01AF266CCA4AB629E.yl4.us-east-2.eks.amazonaws.com
+  name: starlink-kube-cluster.us-east-2.eksctl.io
+contexts:
+- context:
+    cluster: starlink-kube-cluster.us-east-2.eksctl.io
+    user: charith-iit-lab@starlink-kube-cluster.us-east-2.eksctl.io
+  name: charith-iit-lab@starlink-kube-cluster.us-east-2.eksctl.io
+current-context: charith-iit-lab@starlink-kube-cluster.us-east-2.eksctl.io
+kind: Config
+preferences: {}
+users:
+- name: charith-iit-lab@starlink-kube-cluster.us-east-2.eksctl.io
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - eks
+      - get-token
+      - --cluster-name
+      - starlink-kube-cluster
+      - --region
+      - us-east-2
+      command: aws
+      env:
+      - name: AWS_STS_REGIONAL_ENDPOINTS
+        value: regional
