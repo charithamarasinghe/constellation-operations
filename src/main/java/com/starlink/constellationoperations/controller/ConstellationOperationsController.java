@@ -15,7 +15,7 @@ public class ConstellationOperationsController {
 
     @GetMapping("/healthCheck")
     public String healthCheck() {
-        return "GREEN-SUCCESS";
+        return "GREEN-SUCCESS-TEST";
     }
 
     @GetMapping("/getAllConstellationSatInfo")
